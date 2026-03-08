@@ -9,7 +9,7 @@ config-version = 2
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
   "workspace 1",
-  "exec-and-forget open -n -a Ghostty"
+  "exec-and-forget bash -c 'open -n -a Ghostty; sleep 1.5; aerospace workspace 2; open -n -a Ghostty; sleep 1.5; aerospace workspace 3; open -n -a \"Google Chrome\"; sleep 7.5; aerospace workspace 4; open -n -a \"Google Chrome\" --args --incognito'"
 ]
 
 # Start AeroSpace at login
