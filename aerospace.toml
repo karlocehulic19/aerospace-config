@@ -10,6 +10,8 @@ config-version = 2
 after-startup-command = [
   "exec-and-forget bash -c 'open -n -a Ghostty'",
   "exec-and-forget bash -c 'open -n -a Ghostty --args -e nvim'",
+  # here make sure correct cursor path is used
+  "exec-and-forget bash -c 'open -n -a Ghostty --args -e /Applications/Cursor.app/Contents/Resources/app/bin/cursor agent'",
   "exec-and-forget bash -c 'open -n -a \"Google Chrome\"'",
   "exec-and-forget bash -c 'open -n -a \"Google Chrome\" --args -incognito'",
   "exec-and-forget bash -c 'open -n -a Slack'",
@@ -185,6 +187,11 @@ on-mode-changed = []
   if.app-id = 'com.mitchellh.ghostty'
   if.window-title-regex-substring = "nvim"
   run = "move-node-to-workspace 2"
+
+[[on-window-detected]]
+  if.app-id = 'com.mitchellh.ghostty'
+  if.window-title-regex-substring = "cursor"
+  run = "move-node-to-workspace 8"
 
 [[on-window-detected]]
   if.app-id = 'com.mitchellh.ghostty'
