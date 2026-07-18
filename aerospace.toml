@@ -8,8 +8,9 @@ config-version = 2
 # You can use it to add commands that run after AeroSpace startup.
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
-  "exec-and-forget bash -c 'open -n -a Ghostty --args -e tmux'",
-  "exec-and-forget bash -c 'open -n -a Cursor'",
+  "exec-and-forget bash -c 'open -n -a Ghostty --args --title=\"ghostty-tmux\" -e tmux'",
+  "exec-and-forget bash -c 'open -n -a Ghostty --args --title=\"ghostty-nvim\" -e tmux new-session nvim'",
+  "exec-and-forget bash -c 'open -n -a \"Cursor\"'",
   "exec-and-forget bash -c 'open -n -a \"Google Chrome\"'",
   "exec-and-forget bash -c 'open -n -a \"Google Chrome\" --args -incognito'",
   "exec-and-forget bash -c 'open -n -a Slack'",
@@ -183,6 +184,10 @@ on-mode-changed = []
 
 
 # !!! ORDER HERE IS IMPORTANT, CALLBACKS ARE BEING RUN AND CHECKOED FROM TOP TO BOTTOM
+[[on-window-detected]]
+  if.app-id = 'com.mitchellh.ghostty'
+  if.window-title-regex-substring = "ghostty-nvim"
+  run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
   if.app-id = 'com.todesktop.230313mzl4w4u92'
