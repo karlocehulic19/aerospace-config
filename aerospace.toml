@@ -8,8 +8,8 @@ config-version = 2
 # You can use it to add commands that run after AeroSpace startup.
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
-  "exec-and-forget bash -c 'open -n -a Ghostty --args --title=\"ghostty-tmux\" -e tmux'",
-  "exec-and-forget bash -c 'open -n -a Ghostty --args --title=\"ghostty-nvim\" -e tmux new-session nvim'",
+  "exec-and-forget bash -c 'open -n -a Ghostty --args --title=\"ghostty-tmux\" -e tmux new -s zsh'",
+  "exec-and-forget bash -c 'open -n -a Ghostty --args --title=\"ghostty-nvim\" -e tmux new -s nvim nvim'",
   "exec-and-forget bash -c 'open -n -a \"Cursor\"'",
   "exec-and-forget bash -c 'open -n -a \"Google Chrome\"'",
   "exec-and-forget bash -c 'open -n -a \"Google Chrome\" --args -incognito'",
